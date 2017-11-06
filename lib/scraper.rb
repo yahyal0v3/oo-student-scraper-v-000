@@ -26,7 +26,7 @@ class Scraper
       elsif a.attribute('href').value.include?("github")
         profile_hash[:github] = a.attribute('href').value
       else
-        profile_hash[:blog] = doc.css('a:nth-child(4)').attribute('href').value
+        profile_hash[:blog] = a.attribute('href').value
       end
     end
     profile_hash[:profile_quote] = doc.css('div.profile-quote').text
