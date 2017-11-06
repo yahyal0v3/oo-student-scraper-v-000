@@ -20,12 +20,12 @@ class Scraper
     profile_hash = {}
     doc.css('div.social-icon-container a').each do |a|
       if a.attribute('href').value.include?("twitter")
-        profile_hash[:twitter] = a.attribute('href').value 
+        profile_hash[:twitter] = a.attribute('href').value
       elsif a.attribute('href').value.include?("linkedin")
-        profile_hash[:linkedin] = doc.css('a[href*="linkedin"]').attribute('href').value 
+        profile_hash[:linkedin] = doc.css('a[href*="linkedin"]').attribute('href').value
       elsif a.attribute('href').value.include?("github")
-        profile_hash[:github] = doc.css('a[href*="github"]').attribute('href').value  
-      else 
+        profile_hash[:github] = doc.css('a[href*="github"]').attribute('href').value
+      else
         profile_hash[:blog] = doc.css('a:nth-child(4)').attribute('href').value
       end
     end
